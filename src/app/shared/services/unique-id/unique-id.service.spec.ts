@@ -24,7 +24,7 @@ describe(UniqueIdService.name, () => {
     for (let i = 0; i < totalTentativas; i++) {
       const idComPrefixo = service.gerarIDComPrefixo(prefixo);
 
-      console.log(idComPrefixo);
+      // console.log(idComPrefixo);
 
       expect(idComPrefixo).toBeTruthy();
       conjuntoIDs.add(idComPrefixo);
@@ -60,7 +60,9 @@ describe(UniqueIdService.name, () => {
     const valoresVazios = [undefined, null, '', NaN as unknown as string];
 
     valoresVazios.forEach((valor) => {
-      expect(() => service.gerarIDComPrefixo(valor)).toThrow();
+      expect(() => service.gerarIDComPrefixo(valor))
+        .withContext(`Valor vazio: ${valor}`)
+        .toThrow();
     });
   });
 });
