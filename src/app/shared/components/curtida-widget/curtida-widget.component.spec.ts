@@ -1,23 +1,43 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { CurtidaWidgetComponent } from './curtida-widget.component';
+import { UniqueIdService } from '../../services/unique-id/unique-id.service';
 
-describe('CurtidaWidgetComponent', () => {
+describe(CurtidaWidgetComponent.name, () => {
   let component: CurtidaWidgetComponent;
   let fixture: ComponentFixture<CurtidaWidgetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CurtidaWidgetComponent]
-    })
-    .compileComponents();
+      imports: [CurtidaWidgetComponent, FontAwesomeModule],
+      providers: [UniqueIdService],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CurtidaWidgetComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
+
+  it('deve criar ID único se não houver um', () => {
+    fixture.detectChanges();
+    expect(component.id).toBeTruthy();
+  });
+
+  it('não deve criar ID único se já existir um', () => {
+    console.log(component.id);
+
+    const idExistente = 'teste';
+    component.id = idExistente;
+    console.log(component.id);
+
+    fixture.detectChanges();
+    expect(component.id).toEqual(idExistente);
+  });
+
+  // it('', () => {});
 });

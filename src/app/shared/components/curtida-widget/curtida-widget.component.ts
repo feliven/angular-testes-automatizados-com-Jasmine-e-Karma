@@ -13,7 +13,7 @@ export class CurtidaWidgetComponent implements OnInit {
   @Output() public curtida = new EventEmitter<void>();
 
   @Input() public numeroLikes = 0;
-  @Input() public id = null;
+  @Input() public id: string = null;
 
   public icones = { faThumbsUp };
 
@@ -22,7 +22,7 @@ export class CurtidaWidgetComponent implements OnInit {
   ngOnInit(): void {
     if (!this.id) {
       this.id = this.service.gerarIDComPrefixo('like');
-      console.log(this.id);
+      // console.log(this.id);
     }
   }
 
