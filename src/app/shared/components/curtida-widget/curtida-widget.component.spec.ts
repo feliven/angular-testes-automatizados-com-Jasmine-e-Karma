@@ -39,13 +39,14 @@ describe(CurtidaWidgetComponent.name, () => {
     expect(component.id).toEqual(idExistente);
   });
 
-  it(`método ${CurtidaWidgetComponent.prototype.darCurtida.name} deve emitir variável "curtida"`, (testePassou) => {
+  it(`método ${CurtidaWidgetComponent.prototype.darCurtida.name} deve emitir variável "curtida"`, () => {
     fixture.detectChanges();
-    component.curtida.subscribe(() => {
-      expect(true).toBeTrue();
-      testePassou();
-    });
+
+    const spyCurtida = spyOn(component.curtida, 'emit');
+
     component.darCurtida();
+
+    expect(spyCurtida).toHaveBeenCalled();
   });
   // it('', () => {});
 });
