@@ -39,5 +39,13 @@ describe(CurtidaWidgetComponent.name, () => {
     expect(component.id).toEqual(idExistente);
   });
 
+  it(`método ${CurtidaWidgetComponent.prototype.darCurtida.name} deve emitir variável "curtida"`, (testePassou) => {
+    fixture.detectChanges();
+    component.curtida.subscribe(() => {
+      expect(true).toBeTrue();
+      testePassou();
+    });
+    component.darCurtida();
+  });
   // it('', () => {});
 });
