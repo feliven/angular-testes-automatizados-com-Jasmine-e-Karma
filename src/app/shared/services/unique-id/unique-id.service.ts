@@ -5,8 +5,10 @@ import { v7 as uuid } from 'uuid';
 export class UniqueIdService {
   private qtdeIDsGerados = 0;
 
+  private idValido = /^[A-Za-z]+[\w\-\:\.]*$/;
+
   public gerarIDComPrefixo(prefixo: string): string {
-    if (!prefixo) {
+    if (!prefixo || !this.idValido.test(prefixo)) {
       throw new Error('Prefixo é obrigatório');
     }
 
