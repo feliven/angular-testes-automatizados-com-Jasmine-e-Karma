@@ -1,9 +1,15 @@
 import { UniqueIdService } from './unique-id.service';
 
 describe(UniqueIdService.name, () => {
+  let service!: UniqueIdService;
+  let prefixo!: string;
+
+  beforeEach(() => {
+    service = new UniqueIdService();
+    prefixo = 'teste';
+  });
+
   it(`deveria gerar ID único quando -${UniqueIdService.prototype.gerarIDComPrefixo.name}- for chamado com prefixo`, () => {
-    const service = new UniqueIdService();
-    const prefixo = 'teste';
     const idComPrefixo = service.gerarIDComPrefixo(prefixo);
 
     expect(idComPrefixo).toBeTruthy();
@@ -11,8 +17,6 @@ describe(UniqueIdService.name, () => {
   });
 
   it(`não deveria gerar mesmo ID quando -${UniqueIdService.prototype.gerarIDComPrefixo.name}- for chamado múltiplas vezes`, () => {
-    const service = new UniqueIdService();
-    const prefixo = 'teste';
     const conjuntoIDs = new Set<string>();
 
     const totalTentativas = 100;
@@ -27,5 +31,17 @@ describe(UniqueIdService.name, () => {
     }
 
     expect(conjuntoIDs.size).toEqual(totalTentativas);
+  });
+
+  it(`-${UniqueIdService.prototype.getQtdeIDsGerados.name}- deve retornar número de IDs criados`, () => {
+    const totalTentativas = 100;
+
+    for (let i = 0; i < totalTentativas; i++) {
+      service.gerarIDComPrefixo(prefixo);
+    }
+
+    const numeroIDs = service.getQtdeIDsGerados();
+
+    expect(numeroIDs).toEqual(totalTentativas);
   });
 });
