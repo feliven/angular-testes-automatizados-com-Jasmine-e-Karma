@@ -22,7 +22,13 @@ export class CurtidaWidgetComponent implements OnInit {
   ngOnInit(): void {
     if (!this.id) {
       this.id = this.service.gerarIDComPrefixo('like');
-      // console.log(this.id);
+
+      // Prevent the default browser action (scrolling the page)
+      window.addEventListener('keydown', function (event) {
+        if (event.key === '32' || event.code === 'Space') {
+          event.preventDefault();
+        }
+      });
     }
   }
 
