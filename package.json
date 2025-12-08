@@ -12,6 +12,7 @@
     "test-ffhl": "npx ng test --watch=false --browsers FirefoxHeadless",
     "test-ffhl2": "npx ng test --watch=false --browsers FirefoxSemInterface",
     "test-ci": "npx ng test --watch=false --reporters junit --browsers ChromeHeadless",
+    "test-coverage": "npx ng test --watch=false --source-map=true --code-coverage=true --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
