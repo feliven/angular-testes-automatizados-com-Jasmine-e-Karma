@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome Headless 143.0.0.0 (Mac OS 10.15.7)" package="" timestamp="2025-12-08T00:41:42" id="0" hostname="MBA.local" tests="9" errors="0" failures="0" time="0.051">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36"/>
+  </properties>
+  <testcase name="CurtidaWidgetComponent should create" time="0.04" classname="Chrome_Headless_143_0_0_0_(Mac_OS_10_15_7).CurtidaWidgetComponent"/>
+  <testcase name="CurtidaWidgetComponent método darCurtida deve emitir variável &quot;curtida&quot;" time="0.004" classname="Chrome_Headless_143_0_0_0_(Mac_OS_10_15_7).CurtidaWidgetComponent"/>
+  <testcase name="CurtidaWidgetComponent não deve criar ID único se já existir um" time="0.003" classname="Chrome_Headless_143_0_0_0_(Mac_OS_10_15_7).CurtidaWidgetComponent"/>
+  <testcase name="CurtidaWidgetComponent deve criar ID único se não houver um" time="0.002" classname="Chrome_Headless_143_0_0_0_(Mac_OS_10_15_7).CurtidaWidgetComponent"/>
+  <testcase name="UniqueIdService -gerarIDComPrefixo- deve dar erro quando for chamado com valor vazio" time="0" classname="Chrome_Headless_143_0_0_0_(Mac_OS_10_15_7).UniqueIdService"/>
+  <testcase name="UniqueIdService não deveria gerar mesmo ID quando -gerarIDComPrefixo- for chamado múltiplas vezes" time="0.001" classname="Chrome_Headless_143_0_0_0_(Mac_OS_10_15_7).UniqueIdService"/>
+  <testcase name="UniqueIdService -gerarIDComPrefixo- deve dar erro quando for chamado com valor vazio de um conjunto" time="0" classname="Chrome_Headless_143_0_0_0_(Mac_OS_10_15_7).UniqueIdService"/>
+  <testcase name="UniqueIdService -getQtdeIDsGerados- deve retornar número de IDs criados" time="0.001" classname="Chrome_Headless_143_0_0_0_(Mac_OS_10_15_7).UniqueIdService"/>
+  <testcase name="UniqueIdService deveria gerar ID único quando -gerarIDComPrefixo- for chamado com prefixo" time="0" classname="Chrome_Headless_143_0_0_0_(Mac_OS_10_15_7).UniqueIdService"/>
+  <system-out>
+    <![CDATA[Chrome Headless 143.0.0.0 (Mac OS 10.15.7) LOG: null
+,Chrome Headless 143.0.0.0 (Mac OS 10.15.7) LOG: 'teste'
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
